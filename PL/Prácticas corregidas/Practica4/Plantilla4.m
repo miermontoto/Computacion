@@ -1,18 +1,18 @@
 % Zona para rellenar el nombre y los apellidos
 % Por ejemplo:
-% Nombre='Juan Luis González-Santander';
+% Nombre='Juan Luis Gonzï¿½lez-Santander';
 Nombre='Juan Francisco Mier Montoto';
 
 disp(['Practica entregada por ',Nombre])
 %% Ejercicio 1
 disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
-disp('%%%%%%%%%%    Solución del Ejercicio 1    %%%%%%%%%%%%%')
+disp('%%%%%%%%%%    Soluciï¿½n del Ejercicio 1    %%%%%%%%%%%%%')
 disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
 clear
-syms x, f(x) = x^3+6*x-3; % se define la función.
+syms x, f(x) = x^3+6*x-3; % se define la funciï¿½n.
 f1 = diff(f); % se define su derivada.
-f_num = matlabFunction(f); f1_num = matlabFunction(f1); % se convierten a funciones numéricas.
-newton(f_num, f1_num, 6, 1e-10, 100) % se obtiene la aproximación de la raíz.
+f_num = matlabFunction(f); f1_num = matlabFunction(f1); % se convierten a funciones numï¿½ricas.
+newton(f_num, f1_num, 6, 1e-10, 100) % se obtiene la aproximaciï¿½n de la raï¿½z.
 
 disp('%%%%%%%%%%%      Fin del Ejercicio 1      %%%%%%%%%%%%%')
 %%
@@ -20,18 +20,19 @@ pause
 
 %% Ejercicio 2
 disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
-disp('%%%%%%%%%%    Solución del Ejercicio 2    %%%%%%%%%%%%%')
+disp('%%%%%%%%%%    Soluciï¿½n del Ejercicio 2    %%%%%%%%%%%%%')
 disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
 clear
 y0 = 250; g = -9.8; m = 5.5; v0 = 15; k = 0.3; % se definen las constantes.
-syms t, y(t) = y0 + m*g*t/k + (v0 - m*g/k)*m/k*(1 - exp(1)^(-k*t/m)); % se define la función. % MEJOR -> exp(-k*t/m)
-% SALEN DOS PUNTOS DE CORTE EN LA REPRESENTACIÓN GRÁFICA. ¿CUÁL ES EL
-% CORRECTO? LA VARIABLE t ES POSITIVA. 
-fplot(y, [-10, 10]); grid; % observa dónde corta la función, se escoge la raíz positiva.
+syms t, y(t) = y0 + m*g*t/k + (v0 - m*g/k)*m/k*(1 - exp(1)^(-k*t/m)); % se define la funciï¿½n. % MEJOR -> exp(-k*t/m)
+% Se escoge el punto de corte correcto.
+t_corte = solve(y(t) == 0, t);
+
+fplot(y, [-10, 10]); grid; % observa dï¿½nde corta la funciï¿½n, se escoge la raï¿½z positiva.
 y1 = diff(y); % se define su derivada.
-y_num = matlabFunction(y); y1_num = matlabFunction(y1); % se pasan ambas funciones a funciones numéricas.
-x = newton2(y_num, y1_num, 10, 1e-12, 500); % se obtiene el vector del Método de Newton.
-x(end) % se imprime por pantalla el último elemento del vector, es decir, la aprox. de la raíz.
+y_num = matlabFunction(y); y1_num = matlabFunction(y1); % se pasan ambas funciones a funciones numï¿½ricas.
+x = newton2(y_num, y1_num, 10, 1e-12, 500); % se obtiene el vector del Mï¿½todo de Newton.
+x(end) % se imprime por pantalla el ï¿½ltimo elemento del vector, es decir, la aprox. de la raï¿½z.
 
 % NOTA -> -0,5 
 disp('%%%%%%%%%%%      Fin del Ejercicio 2      %%%%%%%%%%%%%')
@@ -40,13 +41,13 @@ pause
 
 %% Ejercicio 3
 disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
-disp('%%%%%%%%%%    Solución del Ejercicio 3    %%%%%%%%%%%%%')
+disp('%%%%%%%%%%    Soluciï¿½n del Ejercicio 3    %%%%%%%%%%%%%')
 disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
 clear
-c = 343; g = 9.8; t = 9.3; % se definen las constantes que se van a utilizar en la función.
-syms h, f(h) = sqrt(2*h/g) + h/c - t; % se define la función.
-fplot(f, [0, 400]); grid % se representa la función como especifica el enunciado.
-f_num = matlabFunction(f); % se convierte a función numérica.
+c = 343; g = 9.8; t = 9.3; % se definen las constantes que se van a utilizar en la funciï¿½n.
+syms h, f(h) = sqrt(2*h/g) + h/c - t; % se define la funciï¿½n.
+fplot(f, [0, 400]); grid % se representa la funciï¿½n como especifica el enunciado.
+f_num = matlabFunction(f); % se convierte a funciï¿½n numï¿½rica.
 secante(f_num,325,350,1e-9,200) % se obtiene el resultado.
 
 
@@ -56,12 +57,12 @@ pause
 
 %% Ejercicio 4
 disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
-disp('%%%%%%%%%%    Solución del Ejercicio 4    %%%%%%%%%%%%%')
+disp('%%%%%%%%%%    Soluciï¿½n del Ejercicio 4    %%%%%%%%%%%%%')
 disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
 clear
-f=@(x) x.^3-9.1*x+1-3*cos(x); % se define la función anónima.
-fplot(f); grid; % se representa para estimar sus raíces.
-r1 = fzero(f, -5); r2 = fzero(f, 0); r3 = fzero(f, 3); % se calculan las raíces.
+f=@(x) x.^3-9.1*x+1-3*cos(x); % se define la funciï¿½n anï¿½nima.
+fplot(f); grid; % se representa para estimar sus raï¿½ces.
+r1 = fzero(f, -5); r2 = fzero(f, 0); r3 = fzero(f, 3); % se calculan las raï¿½ces.
 r1 + r2 + r3 % se obtiene el resultado que se pide. 
 % MEJOR -> disp(r1 + r2 + r3)
 
@@ -71,11 +72,11 @@ pause
 
 %% Ejercicio 5
 disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
-disp('%%%%%%%%%%    Solución del Ejercicio 5    %%%%%%%%%%%%%')
+disp('%%%%%%%%%%    Soluciï¿½n del Ejercicio 5    %%%%%%%%%%%%%')
 disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
 clear
-syms x, f(x) = x^3 + 3.3*x - 3; % se declara la función.
-f_num = matlabFunction(f); % se convierte a función numérica.
+syms x, f(x) = x^3 + 3.3*x - 3; % se declara la funciï¿½n.
+f_num = matlabFunction(f); % se convierte a funciï¿½n numï¿½rica.
 x = MI_secante(f_num, 3.3, 4.3, 1e-10, 100); % se calcula y se almacena el resultado.
 x(8) % se imprime el valor pedido.
 
