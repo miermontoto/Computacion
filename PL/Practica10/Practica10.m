@@ -40,7 +40,7 @@ T = 1e-5; % tolerancia.
 R = [-2 2 -3 3]; % región.
 
 % Se representa la función
-subplot(121), fsurf(F, R), subplot(122), fcontour(F, R)
+subplot(121), fsurf(F, R), subplot(122), fcontour(F, R) % BASTA CON -> fcontour(F, R)
 
 f = @(x) F(x(1), x(2)); % Se define la función a minimizar como función anónima de una sola variable vectorial.
 
@@ -52,7 +52,7 @@ Gf = @(x) Gf(x(1), x(2)); % Se define como función anónima de una sola variable 
 % Se obtiene el máximo.
 [x,n] = MaximaPendiente(f, Gf, [0;0], T, N);
 
-disp(x(1) + x(2) + f(x)) % Se muestra el resultado.
+disp(x(1) + x(2) + f(x)) % Se muestra el resultado. % MEJOR -> disp(sum(x) + f(x))
 
 disp('%%%%%%%%%%%      Fin del Ejercicio 2      %%%%%%%%%%%%%')
 %%
@@ -69,12 +69,12 @@ F = @(x, y) 16.*x.^2 + 36.*y.^2 - 20.8.*x - 62.4.*y + 39.4;
 R = [-2 2 -3 3]; % región.
 
 % Se representa la función
-subplot(121), fsurf(F, R), subplot(122), fcontour(F, R)
+subplot(121), fsurf(F, R), subplot(122), fcontour(F, R) % BASTA CON -> fcontour(F, R)
 
 f = @(x) F(x(1), x(2)); % Se define la función a minimizar como función anónima de una sola variable vectorial.
 m = fminsearch(f, [0;1]); % Se obtiene el mínimo mediante la función.
 
-disp(m(1) + m(2) + f(m)) % Se muestra el resultado.
+disp(m(1) + m(2) + f(m)) % Se muestra el resultado. % MEJOR -> disp(sum(m) + f(m))
 
 disp('%%%%%%%%%%%      Fin del Ejercicio 3      %%%%%%%%%%%%%')
 %%
@@ -109,6 +109,8 @@ f = @(x) 1.93 * abs(integral(@(t) cos(2.*t).^(x + 0.37), 0, x + 0.37));
 
 % Se representa la función en el intervalo.
 fplot(f, intervalo)
+% LA FUNCIÓN -> f NO ESTÁ VECTORIZADA. MEJOR UTILIZA UN BUCLE PARA HALLAR
+% LOS PUNTOS (x,y) DE LA FUNCIÓN Y LUEGO REPRESENTA CON plot(x,y)
 
 % Se obtiene el mínimo
 [xmin, alturaMin] = metodo_aureo2(f, 0.5, 1, E);
@@ -116,3 +118,4 @@ disp(xmin + alturaMin) % Se muestra el resultado.
 
 disp('%%%%%%%%%%%      Fin del Ejercicio 5      %%%%%%%%%%%%%')
 %%
+% NOTA -> 10,0

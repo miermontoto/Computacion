@@ -48,13 +48,16 @@ disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
 clear, format long % Se utiliza el formato estipulado en el enunciado.
 
 eD = 0.001; Re = 20330; % Se declaran las variables.
-%disp(0.16*Re.^-0.16) % Aproximación del resultado.
+%disp(0.16*Re.^-0.16) % Aproximación del resultado. 
+% NO UTILIZAS LA APROXIMACIÓN DEL ENUNCIADO
 f=@(x) (-2*log10(eD./3.7 + 2.51./(Re*sqrt(x)))).^-2; % Se declara la función.
-
+% LA REPRESENTACIÓN GRÁFICA ES INNECESARIA. 
 fplot(f,[-5 5])
 hold on, fplot(@(x) x, [-5 5]) % Se visualiza la función para ver el intervalo de la raíz.
+% FALTA -> hold off 
 ptofijo(f,0.5,1e-6,500) % Se calcula mediante el método de punto fijo.
-
+% NO SE VE POR QUÉ TOMAS COMO ITERACIÓN INICIAL -> 0.5
+% NOTA -> -0,5 
 disp('%%%%%%%%%%%      Fin del Ejercicio 4      %%%%%%%%%%%%%')
 %%
 pause
@@ -94,6 +97,7 @@ biseccion(matlabFunction(det(A)), 2, 3, 1e-8); %%% p > 2.55
 
 c = 2.55 + 1; % Se escoge 2.55 + 1
 Adef = [ c 2.55 0.01 1 ; 2.55 c 0.01 1 ; 0.01 0.01 c 1 ; 1 1 1 c ];
+% NO ES NECESARIO RESOLVER EL SISTEMA POR CHOLESKI
 U = chol(Adef); % Se calcula la matriz de Cholesky de A.
 y = sustitucion_progresiva(U.', b);
 x = sustitucion_regresiva(U, y); % Se aplican las sustituciones correspondientes.
@@ -102,3 +106,5 @@ sum(x) % Resultado
 
 disp('%%%%%%%%%%%      Fin del Ejercicio 5      %%%%%%%%%%%%%')
 %%
+
+% NOTA -> 10 - 0,5 

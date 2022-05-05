@@ -3,7 +3,7 @@ function I = intGauss5(f, a, b)
 % f: Función anónima
 % a,b: Extremos del intervalo.
 % I: Forma de cuadratura gaussiana con 5 nodos aplicado a la función.
-format long
+format long % INNECESARIO 
 syms x, L5_sim(x) = diff((x^2 - 1)^5, 5) / (2^5) / factorial(5); % Fórmula de Rodrigues.
 L5 = sym2poly(L5_sim);
 xx = roots(L5); % Puntos a interpolar.

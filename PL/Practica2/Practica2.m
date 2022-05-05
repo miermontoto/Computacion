@@ -11,6 +11,7 @@ disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
 % Introduce a partir de aquí la solución del Ejercicio 1
 % Para ejecutar este ejercicio, pon el cursor aquí y pincha en "Run Section"
 clear
+% FALTAN COMENTARIOS
 media([8.24,7.72,3.17,1.36])
 
 
@@ -25,6 +26,7 @@ disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
 % Introduce a partir de aquí la solución del Ejercicio 2
 % Para ejecutar este ejercicio, pon el cursor aquí y pincha en "Run Section"
 clear
+% FALTAN COMENTARIOS
 raiz(12,68.07)
 
 disp('%%%%%%%%%%%      Fin del Ejercicio 2      %%%%%%%%%%%%%')
@@ -38,6 +40,7 @@ disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
 % Introduce a partir de aquí la solución del Ejercicio 3
 % Para ejecutar este ejercicio, pon el cursor aquí y pincha en "Run Section"
 clear
+% FALTAN COMENTARIOS
 x=sucesion(6862);
 x(6862)
 
@@ -52,6 +55,7 @@ disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
 % Introduce a partir de aquí la solución del Ejercicio 4
 % Para ejecutar este ejercicio, pon el cursor aquí y pincha en "Run Section"
 clear
+% FALTAN COMENTARIOS
 x=sucesionwhile(6862);
 x(6862)
 

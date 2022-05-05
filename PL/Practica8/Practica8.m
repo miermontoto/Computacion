@@ -8,12 +8,14 @@ disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
 clear, format, clc
 % Se declaran los datos.
 f=@(x) 91/10 .* sqrt(3.*pi+10.*x./91) .* sin(100.*x./455) - 100.*x./182;
+% MEJOR -> f = @(x) 91/10*sqrt(3*pi + 10*x/91).*sin(100*x/455) - 100*x/182;
 x = linspace(-18.2*pi,18.2*pi, 15) ; % Coordenadas x de los puntos.
 y = f(x); % Coordenadas y de los puntos, se obtienen a partir de la función y de x.
 
 % Se representa la función y la interpolación.
 fplot(f, [x(1) x(end)], 'k') % Se representa la función en negrita.
 hold on, plot(x,y,'r:') % Se representa la interpolación lineal en rojo con líneas punteadas.
+% FALTA REPRESENTAR LOS PUNTOS 
 hold off, legend('f(x)', 'Interpolación lineal', 'location', 'southwest') % Se inlcuye una leyenda.
 
 % Calcular los errores de aproximar la función por interpolación respecto a la función en sí.
@@ -21,7 +23,7 @@ puntos = [-3.64*pi, 3.64*pi];
 errs = abs(interp1(x, y, puntos) - f(puntos));
 disp(sum(errs)) % Se muestra el valor requerido.
 
-
+% NOTA -> -0,25 
 disp('%%%%%%%%%%%      Fin del Ejercicio 1      %%%%%%%%%%%%%')
 %%
 pause
@@ -39,10 +41,11 @@ s = @(t) spline(x, y, t); % Se declara la función anónima 's' correspondiente al
 
 % Se representa los puntos y la interpolación.
 plot(x, y, '.', 'markersize', 40) % Se representan los puntos.
+% LOS PUNTOS HAN DE SER DE COLOR VERDE 
 hold on, fplot(s, [x(1) x(end)], 'r') % Se representa la interpolación por splines "mediante trazo continuo rojo".
 hold off, legend('f(x)', 'Interpolación', 'location', 'northwest') % Se inlcuye una leyenda.
 disp(s(6.45)) % Se muestra el valor requerido.
-
+% NOTA -> -0,25 
 disp('%%%%%%%%%%%      Fin del Ejercicio 2      %%%%%%%%%%%%%')
 %%
 pause
@@ -103,7 +106,7 @@ clear, format, clc
 r = [17.01 12.6 10.143 7.56 6.426];
 t = [48 67 83 108 126];
 t = deg2rad(t);
-
+% FALTAN COMENTARIOS 
 % Se transforman las variables.
 R = 1./r;
 T = cos(t);
@@ -113,5 +116,8 @@ a = 1/n; b = -m*a;
 f = @(x) a./(1-b*cos(x));
 
 disp(f(deg2rad(91)))
+% NOTA -> -0,25 
 disp('%%%%%%%%%%%      Fin del Ejercicio 5      %%%%%%%%%%%%%')
 %%
+
+% NOTA -> 10,0 -0,25 -0,25 -0,25 

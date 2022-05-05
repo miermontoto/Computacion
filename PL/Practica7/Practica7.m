@@ -35,9 +35,11 @@ plot(x, y, '.', 'markersize', 20)
 xx = linspace(x(1), x(end)); % Intervalo de x's
 yy = polyval(p, xx); % Se evalúa el polinomio en dicho intervalo.
 hold on, plot(xx, yy)
-legend('Nodos', 'Polinomio', 'location', 'northeast')
+legend('Nodos', 'Polinomio', 'location', 'northeast') % LA LEYENDA TAPA LA GRÁFICA
+% FALTA -> hold off
 
 disp(polyval(p, 4.9)) % Mostrar el resultado pedido en el enunciado.
+% NOTA -> -0,25 
 
 disp('%%%%%%%%%%%      Fin del Ejercicio 2      %%%%%%%%%%%%%')
 %%
@@ -63,8 +65,11 @@ p = y * L;
 fplot(f, intervalo, 'k')
 hold on, fplot(@(x) polyval(p,x), intervalo, 'r:')
 legend('f(x)','Polinomio interpolador','location','southwest')
+% FALTA REPRESENTAR LOS NODOS 
+% FALTA -> hold off 
 
 polyval(p, 0.19375) % Se calcula el resultado requerido.
+% NOTA -> -0,25 
 disp('%%%%%%%%%%%      Fin del Ejercicio 3      %%%%%%%%%%%%%')
 %%
 pause
@@ -95,14 +100,15 @@ r = [ intervalo(1) ; r ; intervalo(2) ]; % se añaden los extremos del intervalo
 K = max(abs(polyval(q,r))); % se evalúan todas las posibilidades y se escoge la máxima.
 
 % Obtener M
-syms x, f_sim(x) = f(x);
+syms x, f_sim(x) = f(x); % ¡OJO! REDEFINES LA VARIABLE -> x COMO SIMBÓLICA 
 f7 = diff(f_sim,7);
 
 % Representar
 fplot(matlabFunction(f7), intervalo) % se visualiza la derivada.
-legend('location', 'northwest')
+legend('location', 'northwest') % LEYENDA INNECESARIA
 
-c = fzero(matlabFunction(diff(f7)),1); % punto de derivada nula con una aproximación al máximo.
+c = fzero(matlabFunction(diff(f7)),1); % punto de derivada nula con una aproximación al máximo. 
+%       MEJOR -> -1 EN LUGAR DE -> 1
 M = double(abs(f7(c)));
 
 % Cota del error
@@ -144,9 +150,14 @@ plot(x, y, '.', 'markersize', 20);
 xx=linspace(a, b); plot(xx, f(xx), 'k')
 hold on, yy = polyval(p,xx); plot(xx,yy,'b')
 legend('f(x)','Polinomio interpolador','location','southwest')
+% FALTA REPRESENTAR LOS NODOS 
+% FALTA -> hold off
 
 var = 7.75;
 disp(abs(polyval(p, var) - f(var))) % Se calcula lo que pide el enunciado.
+% NOTA -> -0,25 
 
 disp('%%%%%%%%%%%      Fin del Ejercicio 5      %%%%%%%%%%%%%')
 %%
+
+% NOTA -> 10,0 - 0,25 - 0,25 

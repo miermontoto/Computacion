@@ -9,13 +9,14 @@ if fa*fb>0
     disp('La función no cambia de signo en los extremos')
     x=[];
 elseif fa==0
-    disp('Solución exacta'), x=[a];
+    disp('Solución exacta'), x=[a]; % CORCHETES INNECESARIOS 
 elseif fb==0
-    disp('Solución exacta'), x=[b];
+    disp('Solución exacta'), x=[b]; % CORCHETES INNECESARIOS 
 else
-    x=[]
+    x=[] % FALTA ;
     N=ceil(log2(abs(b-a)/E)); % Nº de iteraciones para que |x-r| <= E
     N=max([N 1]); % El método de bisección se aplica, al menos, una vez
+    % MEJOR ->  x = zeros(1,N);
     for n=1:N
         x(n)=(a+b)/2; fx=f(x(n));
         if fx==0
