@@ -66,7 +66,8 @@ E = 1e-5;
 % f = @(n) 2*exp(1) / factorial(abs(n+1)) * 0.5^(n+1) - E;
 % n = fsolve(f, 10)
 n = 13; % Este es el valor correcto de n, se procede con el ejercicio tras haberlo obtenido de manera "manual".
-
+% NO QUEDA CLARO POR QUÉ n = 13
+% HAS DE CALCULAR EL VALOR DE n CON UN BUCLE 
 % Se calcula lagrange con la cantidad de nodos de Chebyshev obtenida.
 i = 1:n; x = cos((2*i-1)*pi/(2*n)); y = f(x);
 L = lagrange(x);
@@ -79,6 +80,8 @@ else, disp('El error cometido es superior a la cota dada.'), end
 disp(err) % Se muestra el error cometido.
 
 format
+
+% NOTA -> -0,5 
 disp('%%%%%%%%%%%      Fin del Ejercicio 3      %%%%%%%%%%%%%')
 %%
 pause
@@ -102,7 +105,11 @@ x0 = fzero(matlabFunction(diff(f2)), 2); % Se obtiene el punto máximo a partir d
 M = max(double(abs(f2([intervalo(1), x0, intervalo(2)])))); % Se obtiene M incluyendo los extremos del intervalo.
 nodosMin = ceil(sqrt((intervalo(2) - intervalo(1))^3 * M / 12 / epsilon)); % Se calcula la cantidad de nodos mínimos para superar la cota del error.
 disp(nodosMin)
+% NO HAS DE CALCULAR LA COTA DEL ERROR
+% NO EXPLICAS CÓMO CALCULAS -> nodosMin. HAS DE CALCULARLO CON UN BUCLE 
 nodosMin = 10; % !!! ESTE ES EL VALOR CORRECTO DE NODOSMIN! el cálculo anterior no funciona como debería.
+
+% FALTA LA REPRESENTACIÓN GRÁFICA 
 
 % Se calcula el error obtieniendo ambas integrales.
 integralTrapecio = trapecio_compuesta(f, intervalo(1), intervalo(2), nodosMin); % Se aplica trapecio compuesta con 15 subintervalos.
@@ -110,6 +117,7 @@ integralExacta = integral(f, intervalo(1), intervalo(2));
 err = abs(integralTrapecio - integralExacta);
 disp(err) % Se muestra el resultado pedido por el enunciado.
 
+% NOTA -> -0,75 
 
 disp('%%%%%%%%%%%      Fin del Ejercicio 4      %%%%%%%%%%%%%')
 %%
@@ -122,9 +130,10 @@ disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
 clear, format, clc
 % Se declaran las variables.
 intervalo = [-5 5];
-f = @(p) fminsearch(@(x) x.^4 + 6*p.^2.*x.^2 - 8*p.^3.*x + 1, [1;1]);
+f = @(p) fminsearch(@(x) x.^4 + 6*p.^2.*x.^2 - 8*p.^3.*x + 1, [1;1]); % ERROR. NO HAS DE CALCULAR EL MÍNIMO DE ESTA FUNCIÓN 
 
 fplot(f, intervalo)
 
 disp('%%%%%%%%%%%      Fin del Ejercicio 5      %%%%%%%%%%%%%')
 %%
+% NOTA -> 8,0 - 0,5 -0,75 

@@ -26,7 +26,7 @@ x0 = fzero(matlabFunction(diff(f2)), 2); % Se obtiene el punto máximo a partir d
 M = max(double(abs(f2([intervalo(1), x0, intervalo(2)])))); % Se obtiene M incluyendo los extremos del intervalo.
 n = ceil(sqrt((intervalo(2) - intervalo(1))^3 * M / 12 / epsilon)); % Se calcula la cantidad de nodos mínimos para superar la cota del error.
 
-disp(n)
+disp(a + n)
 % FALTA VOLVER AL FORMATO POR DEFECTO -> format 
 disp('%%%%%%%%%%%      Fin del Ejercicio 1      %%%%%%%%%%%%%')
 %%
